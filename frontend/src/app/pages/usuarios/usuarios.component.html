@@ -1,0 +1,219 @@
+<div class="usuarios-page">
+
+  <!-- En-tête -->
+  <div class="page-header">
+    <div class="page-title">
+      <app-icon name="users" [size]="28"></app-icon>
+      <div>
+        <h2>Gestion des utilisateurs</h2>
+        <p>Créez, activez ou désactivez les comptes utilisateurs</p>
+      </div>
+    </div>
+    <button class="btn-primary" (click)="toggleForm()">
+      <app-icon [name]="showForm ? 'close' : 'plus'" [size]="18"></app-icon>
+      <span>{{ showForm ? 'Annuler' : 'Nouvel utilisateur' }}</span>
+    </button>
+  </div>
+
+  <!-- Statistiques -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#dbeafe;color:#1e40af;">
+        <app-icon name="users" [size]="22"></app-icon>
+      </div>
+      <div>
+        <span class="stat-value">{{ usuarios.length }}</span>
+        <span class="stat-label">Total</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#dcfce7;color:#16a34a;">
+        <app-icon name="check" [size]="22"></app-icon>
+      </div>
+      <div>
+        <span class="stat-value">{{ actifs }}</span>
+        <span class="stat-label">Actifs</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fee2e2;color:#dc2626;">
+        <app-icon name="close" [size]="22"></app-icon>
+      </div>
+      <div>
+        <span class="stat-value">{{ inactifs }}</span>
+        <span class="stat-label">Inactifs</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fef3c7;color:#d97706;">
+        <app-icon name="shield" [size]="22"></app-icon>
+      </div>
+      <div>
+        <span class="stat-value">{{ countByRole('ADMIN') }}</span>
+        <span class="stat-label">Administrateurs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulaire de création -->
+  <div class="card form-card" *ngIf="showForm">
+    <div class="card-header">
+      <app-icon name="plus" [size]="20"></app-icon>
+      <h3>Créer un nouvel utilisateur</h3>
+    </div>
+
+    <form (ngSubmit)="creer()" class="user-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nom d'utilisateur <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <app-icon name="key" [size]="16" class="input-icon"></app-icon>
+            <input [(ngModel)]="novo.username" name="username"
+                   placeholder="ex: jean.dupont" required minlength="3" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Nom complet <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <app-icon name="user" [size]="16" class="input-icon"></app-icon>
+            <input [(ngModel)]="novo.nome" name="nome"
+                   placeholder="ex: Jean Dupont" required />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <app-icon name="mail" [size]="16" class="input-icon"></app-icon>
+            <input [(ngModel)]="novo.email" name="email" type="email"
+                   placeholder="ex: jean@estoque.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Mot de passe <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <app-icon name="lock" [size]="16" class="input-icon"></app-icon>
+            <input [(ngModel)]="novo.password" name="password"
+                   [type]="showPassword ? 'text' : 'password'"
+                   placeholder="6 caractères minimum" required minlength="6" autocomplete="new-password" />
+            <button type="button" class="toggle-pwd" (click)="showPassword = !showPassword">
+              <app-icon [name]="showPassword ? 'eyeOff' : 'eye'" [size]="16"></app-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Rôle <span class="required">*</span></label>
+        <div class="roles-grid">
+          <label *ngFor="let r of roles"
+                 class="role-option"
+                 [style.--role-color]="getRoleColor(r)"
+                 [class.selected]="novo.role === r">
+            <input type="radio" name="role" [value]="r" [(ngModel)]="novo.role" hidden />
+            <app-icon [name]="getRoleIcon(r)" [size]="20"></app-icon>
+            <span class="role-label">{{ r }}</span>
+          </label>
+        </div>
+      </div>
+
+      <p *ngIf="erro" class="msg-error">
+        <app-icon name="alert" [size]="16"></app-icon>
+        <span>{{ erro }}</span>
+      </p>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="toggleForm()">
+          <app-icon name="close" [size]="16"></app-icon>
+          <span>Annuler</span>
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="loading">
+          <app-icon name="save" [size]="16"></app-icon>
+          <span>{{ loading ? 'Création...' : 'Créer l\'utilisateur' }}</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Message de succès -->
+  <p *ngIf="success" class="msg-success">
+    <app-icon name="check" [size]="16"></app-icon>
+    <span>{{ success }}</span>
+  </p>
+
+  <!-- Message d'erreur global -->
+  <p *ngIf="erro && !showForm" class="msg-error">
+    <app-icon name="alert" [size]="16"></app-icon>
+    <span>{{ erro }}</span>
+  </p>
+
+  <!-- Liste des utilisateurs -->
+  <div class="card">
+    <div class="card-header">
+      <app-icon name="users" [size]="20"></app-icon>
+      <h3>Tous les utilisateurs ({{ usuarios.length }})</h3>
+    </div>
+
+    <table class="table users-table">
+      <thead>
+      <tr>
+        <th>Utilisateur</th>
+        <th>Nom complet</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let u of usuarios" [class.inactive]="!u.actif">
+        <td>
+          <div class="user-cell">
+              <span class="user-avatar-sm" [style.background]="getRoleColor(u.role)">
+                <app-icon [name]="getRoleIcon(u.role)" [size]="14"></app-icon>
+              </span>
+            <strong>{{ u.username }}</strong>
+            <span class="self-tag" *ngIf="u.username === auth.currentUser()?.username">(vous)</span>
+          </div>
+        </td>
+        <td>{{ u.nome }}</td>
+        <td class="email-cell">
+          <app-icon name="mail" [size]="14"></app-icon>
+          <span>{{ u.email }}</span>
+        </td>
+        <td>
+            <span class="role-pill" [style.background]="getRoleColor(u.role)">
+              {{ u.role }}
+            </span>
+        </td>
+        <td>
+            <span class="status-pill" [class.active]="u.actif" [class.inactive]="!u.actif">
+              <app-icon [name]="u.actif ? 'check' : 'close'" [size]="12"></app-icon>
+              {{ u.actif ? 'Actif' : 'Désactivé' }}
+            </span>
+        </td>
+        <td class="actions-cell">
+          <button class="btn-icon" (click)="toggleActif(u)" title="{{ u.actif ? 'Désactiver' : 'Activer' }}">
+            <app-icon [name]="u.actif ? 'eyeOff' : 'eye'" [size]="16"></app-icon>
+          </button>
+          <button class="btn-icon danger" (click)="excluir(u)" title="Supprimer"
+                  [disabled]="u.username === auth.currentUser()?.username">
+            <app-icon name="trash" [size]="16"></app-icon>
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="usuarios.length === 0">
+        <td colspan="6" class="empty-row">
+          <app-icon name="users" [size]="24"></app-icon>
+          <p>Aucun utilisateur trouvé</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

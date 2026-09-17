@@ -1,0 +1,95 @@
+<div class="profile-page">
+
+  <div class="profile-header">
+    <div class="avatar" [style.background]="user ? getRoleColor(user.role) : '#64748b'">
+      <app-icon [name]="user ? getRoleIcon(user.role) : 'user'" [size]="48"></app-icon>
+    </div>
+    <div class="profile-info">
+      <h2>{{ user?.nome }}</h2>
+      <p class="username">&#64;{{ user?.username }}</p>
+      <span class="role-pill" [style.background]="user ? getRoleColor(user.role) : '#64748b'">
+        {{ user?.role }}
+      </span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-header">
+        <app-icon name="info" [size]="20"></app-icon>
+        <h3>Informations personnelles</h3>
+      </div>
+      <div class="info-row">
+        <app-icon name="user" [size]="18"></app-icon>
+        <div><span class="label">Nom complet</span><span class="value">{{ user?.nome }}</span></div>
+      </div>
+      <div class="info-row">
+        <app-icon name="key" [size]="18"></app-icon>
+        <div><span class="label">Nom d'utilisateur</span><span class="value">{{ user?.username }}</span></div>
+      </div>
+      <div class="info-row">
+        <app-icon name="mail" [size]="18"></app-icon>
+        <div><span class="label">Email</span><span class="value">{{ user?.email }}</span></div>
+      </div>
+      <div class="info-row">
+        <app-icon name="shield" [size]="18"></app-icon>
+        <div><span class="label">Rôle</span><span class="value">{{ user?.role }}</span></div>
+      </div>
+    </div>
+
+    <div class="card role-card" [style.borderLeftColor]="user ? getRoleColor(user.role) : '#64748b'">
+      <div class="card-header">
+        <app-icon [name]="user ? getRoleIcon(user.role) : 'shield'" [size]="20"></app-icon>
+        <h3>Vos permissions</h3>
+      </div>
+      <p class="role-description">{{ user ? getRoleDescription(user.role) : '' }}</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <app-icon name="lock" [size]="20"></app-icon>
+      <h3>Changer le mot de passe</h3>
+    </div>
+    <form (ngSubmit)="changerMotDePasse()" class="pwd-form">
+      <div class="form-group">
+        <label>Mot de passe actuel</label>
+        <div class="input-wrapper">
+          <app-icon name="lock" [size]="18" class="input-icon"></app-icon>
+          <input [(ngModel)]="currentPassword" name="currentPassword"
+                 [type]="showPassword ? 'text' : 'password'" required />
+          <button type="button" class="toggle-pwd" (click)="showPassword = !showPassword">
+            <app-icon [name]="showPassword ? 'eyeOff' : 'eye'" [size]="18"></app-icon>
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Nouveau mot de passe</label>
+        <div class="input-wrapper">
+          <app-icon name="key" [size]="18" class="input-icon"></app-icon>
+          <input [(ngModel)]="newPassword" name="newPassword"
+                 [type]="showPassword ? 'text' : 'password'" required minlength="6" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Confirmer le nouveau mot de passe</label>
+        <div class="input-wrapper">
+          <app-icon name="check" [size]="18" class="input-icon"></app-icon>
+          <input [(ngModel)]="confirmPassword" name="confirmPassword"
+                 [type]="showPassword ? 'text' : 'password'" required />
+        </div>
+      </div>
+
+      <p *ngIf="message" [class]="'msg-' + messageType">
+        <app-icon [name]="messageType === 'success' ? 'check' : 'alert'" [size]="16"></app-icon>
+        <span>{{ message }}</span>
+      </p>
+
+      <button type="submit" [disabled]="loading">
+        <app-icon name="save" [size]="18"></app-icon>
+        <span>{{ loading ? 'Enregistrement...' : 'Mettre à jour' }}</span>
+      </button>
+    </form>
+  </div>
+
+</div>

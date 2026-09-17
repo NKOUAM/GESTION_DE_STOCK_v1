@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="dsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4D6BFE"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fond arrondi -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#dsGrad)"/>
+
+  <!-- Cube 3D stylisé -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Face supérieure -->
+    <path d="M16 24 L32 15 L48 24 L32 33 Z"/>
+    <!-- Arête gauche -->
+    <path d="M16 24 L16 42 L32 51"/>
+    <!-- Arête droite -->
+    <path d="M48 24 L48 42 L32 51"/>
+    <!-- Arête centrale -->
+    <path d="M32 33 L32 51"/>
+  </g>
+
+  <!-- Petit point lumineux -->
+  <circle cx="32" cy="24" r="2.2" fill="#FFFFFF"/>
+</svg>

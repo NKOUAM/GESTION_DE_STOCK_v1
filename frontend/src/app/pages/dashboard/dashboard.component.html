@@ -1,0 +1,49 @@
+<h2>
+  <app-icon name="dashboard" [size]="24" />
+  Tableau de bord
+</h2>
+
+<div class="info-widgets">
+  <div class="info-card">
+    <div class="info-icon"><app-icon name="clock" [size]="28" /></div>
+    <div class="info-content">
+      <div class="info-label">Heure actuelle</div>
+      <div class="info-value">{{ currentTime }}</div>
+      <div class="info-sub">{{ currentDate }}</div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-icon"><app-icon name="pin" [size]="28" /></div>
+    <div class="info-content">
+      <div class="info-label">Votre position</div>
+      <div class="info-value">{{ city }}</div>
+      <div class="info-sub" *ngIf="country">{{ country }}</div>
+      <div class="info-sub" *ngIf="latitude">
+        {{ latitude | number:'1.4-4' }}, {{ longitude | number:'1.4-4' }}
+      </div>
+      <button class="info-btn" (click)="refreshLocation()">Actualiser</button>
+      <div class="info-error" *ngIf="locationError">{{ locationError }}</div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-icon"><app-icon name="cloud" [size]="28" /></div>
+    <div class="info-content">
+      <div class="info-label">Météo</div>
+      <div class="info-value" *ngIf="weather">{{ weather.temperature | number:'1.0-1' }} °C</div>
+      <div class="info-value" *ngIf="weatherLoading">Chargement…</div>
+      <div class="info-value" *ngIf="!weather && !weatherLoading">—</div>
+      <div class="info-sub" *ngIf="weather">{{ weatherLabel(weather.weathercode) }}</div>
+      <div class="info-sub" *ngIf="weather">Vent : {{ weather.windspeed | number:'1.0-1' }} km/h</div>
+      <div class="info-error" *ngIf="weatherError">{{ weatherError }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="cards">
+  <div class="card"><h3>{{ totalCategorias }}</h3><p>Catégories</p></div>
+  <div class="card"><h3>{{ totalFornecedores }}</h3><p>Fournisseurs</p></div>
+  <div class="card"><h3>{{ totalProdutos }}</h3><p>Produits</p></div>
+  <div class="card"><h3>{{ stockTotal }}</h3><p>Unités en stock</p></div>
+</div>

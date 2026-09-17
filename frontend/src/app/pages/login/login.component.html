@@ -1,0 +1,82 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo-circle">
+        <app-icon name="box" [size]="40"></app-icon>
+      </div>
+      <h1>Gestion de Stock</h1>
+      <p class="subtitle">Connectez-vous à votre espace</p>
+    </div>
+    <form (ngSubmit)="login()">
+
+      <div class="form-group">
+        <label>Nom d'utilisateur</label>
+        <div class="input-wrapper">
+          <app-icon name="user" [size]="18" class="input-icon"></app-icon>
+          <input [(ngModel)]="username" name="username"
+                 placeholder="admin"
+                 required autocomplete="username" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <div class="input-wrapper">
+          <app-icon name="lock" [size]="18" class="input-icon"></app-icon>
+          <input [(ngModel)]="password" name="password"
+                 [type]="showPassword ? 'text' : 'password'"
+                 placeholder="••••••"
+                 required autocomplete="current-password" />
+          <button type="button" class="toggle-pwd" (click)="showPassword = !showPassword">
+            <app-icon [name]="showPassword ? 'eyeOff' : 'eye'" [size]="18"></app-icon>
+          </button>
+        </div>
+      </div>
+      <div class="forgot-row">
+        <a routerLink="/forgot-password" class="forgot-link">
+          <app-icon name="key" [size]="14"></app-icon>
+          <span>Mot de passe oublié ?</span>
+        </a>
+      </div>
+
+      <p *ngIf="erro" class="erro">
+        <app-icon name="alert" [size]="16"></app-icon>
+        <span>{{ erro }}</span>
+      </p>
+
+      <button type="submit" class="btn-login" [disabled]="loading">
+        <app-icon name="login" [size]="18"></app-icon>
+        <span>{{ loading ? 'Connexion...' : 'Se connecter' }}</span>
+      </button>
+
+    </form>
+
+    <div class="divider">
+      <span>ou</span>
+    </div>
+
+    <div class="signup-row">
+      <span>Pas encore de compte ?</span>
+      <a routerLink="/signup" class="signup-link">
+        <app-icon name="user" [size]="14"></app-icon>
+        <span>Créer un compte</span>
+      </a>
+    </div>
+
+    <div class="profils-demo">
+      <p class="profils-title">Connexion rapide</p>
+      <div class="profils-grid">
+        <button *ngFor="let p of profils"
+                type="button"
+                (click)="remplir(p.user, p.pass)"
+                class="profil-btn"
+                [style.--role-color]="p.color">
+          <app-icon [name]="p.icon" [size]="22"></app-icon>
+          <span class="label">{{ p.label }}</span>
+          <span class="role-name">{{ p.role }}</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

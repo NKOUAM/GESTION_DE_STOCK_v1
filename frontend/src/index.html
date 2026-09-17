@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Gestion de Stock</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Application de gestion de stock — produits, catégories, fournisseurs, mouvements">
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ds-theme');
+        var theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+      } catch(e) {}
+    })();
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <meta name="theme-color" content="#4D6BFE">
+
+  <meta property="og:title" content="Gestion de Stock">
+  <meta property="og:description" content="Application de gestion de stock">
+  <meta property="og:image" content="assets/logo-full.svg">
+</head>
+<body>
+<app-root></app-root>
+</body>
+</html>

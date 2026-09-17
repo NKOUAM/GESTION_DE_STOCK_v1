@@ -1,0 +1,173 @@
+/* ============================================================
+   DASHBOARD
+   ============================================================ */
+:host {
+  display: block;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.5rem;
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+/* ============================================================
+   Widgets d'info (heure / position / météo)
+   ============================================================ */
+.info-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  display: flex;
+  gap: 1rem;
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  border-left: 4px solid #3b82f6;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+}
+
+.info-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: .15rem;
+  min-width: 0;
+}
+
+.info-label {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.info-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.info-sub {
+  font-size: .85rem;
+  color: #64748b;
+}
+
+.info-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .5rem;
+  padding: .35rem .75rem;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .8rem;
+  font-weight: 600;
+  transition: all .2s;
+  align-self: flex-start;
+  font-family: inherit;
+}
+
+.info-btn:hover {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.info-error {
+  font-size: .8rem;
+  color: #dc2626;
+  margin-top: .35rem;
+}
+
+/* ============================================================
+   Cartes statistiques
+   ============================================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.75rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #1e40af);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e40af;
+  line-height: 1;
+}
+
+.card p {
+  margin: .5rem 0 0;
+  color: #64748b;
+  font-size: .9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+/* Couleurs variées pour les 4 cartes */
+.cards .card:nth-child(1)::before { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.cards .card:nth-child(2)::before { background: linear-gradient(90deg, #9333ea, #7e22ce); }
+.cards .card:nth-child(3)::before { background: linear-gradient(90deg, #16a34a, #15803d); }
+.cards .card:nth-child(4)::before { background: linear-gradient(90deg, #d97706, #b45309); }
+
+.cards .card:nth-child(1) h3 { color: #2563eb; }
+.cards .card:nth-child(2) h3 { color: #7e22ce; }
+.cards .card:nth-child(3) h3 { color: #15803d; }
+.cards .card:nth-child(4) h3 { color: #b45309; }

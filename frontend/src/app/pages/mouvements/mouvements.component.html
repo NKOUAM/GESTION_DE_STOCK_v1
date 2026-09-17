@@ -1,0 +1,52 @@
+<h2>
+  <app-icon name="exchange" [size]="24" />
+  Mouvements de stock
+</h2>
+
+<form class="form">
+  <label>Produit
+    <select [(ngModel)]="produtoSelecionadoId" name="produto" (ngModelChange)="carregar()">
+      <option *ngFor="let p of produtos" [ngValue]="p.id">
+        {{ p.nome }} — stock : {{ p.quantidade }}
+      </option>
+    </select>
+  </label>
+</form>
+
+<form (ngSubmit)="salvar()" class="form">
+  <label>Type
+    <select [(ngModel)]="nova.tipo" name="tipo">
+      <option value="ENTRADA">Entrée</option>
+      <option value="SAIDA">Sortie</option>
+    </select>
+  </label>
+  <label>Quantité <input [(ngModel)]="nova.quantidade" name="quantidade" type="number" min="1" /></label>
+  <label>Observation <input [(ngModel)]="nova.observacao" name="observacao" /></label>
+  <button type="submit">
+    <app-icon name="check" [size]="16" /> Enregistrer
+  </button>
+</form>
+
+<p *ngIf="erro" class="erro">{{ erro }}</p>
+
+<table class="table">
+  <thead>
+    <tr><th>ID</th><th>Type</th><th>Quantité</th><th>Observation</th><th>Date</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of movimentacoes">
+      <td>{{ m.id }}</td>
+      <td>
+        <span class="badge" [class.entrada]="m.tipo === 'ENTRADA'" [class.saida]="m.tipo === 'SAIDA'">
+          {{ m.tipo === 'ENTRADA' ? 'Entrée' : 'Sortie' }}
+        </span>
+      </td>
+      <td>{{ m.quantidade }}</td>
+      <td>{{ m.observacao }}</td>
+      <td>{{ m.data | date:'dd/MM/yyyy HH:mm' }}</td>
+    </tr>
+    <tr *ngIf="movimentacoes.length === 0">
+      <td colspan="5" style="text-align:center; color:#9CA3AF; padding:32px">Aucun mouvement</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,194 @@
+
+:host {
+  display: block;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.5rem;
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+
+.form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  border-left: 4px solid #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  font-size: .8rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.form select,
+.form input {
+  padding: .7rem .9rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: .95rem;
+  color: #0f172a;
+  font-family: inherit;
+  background: #fff;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: all .2s;
+}
+
+.form select:focus,
+.form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+
+.form button {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .9rem;
+  font-family: inherit;
+  transition: all .2s;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  align-self: flex-end;
+}
+
+.form button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(59,130,246,.4);
+}
+
+.erro {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: .7rem 1rem;
+  border-radius: 8px;
+  font-size: .9rem;
+  margin: 0 0 1rem;
+}
+
+/* ============================================================
+   Tableau
+   ============================================================ */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.table thead {
+  background: #f8fafc;
+}
+
+.table th {
+  padding: .85rem 1rem;
+  text-align: left;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table td {
+  padding: .85rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  font-size: .9rem;
+}
+
+.table tbody tr {
+  transition: background .15s;
+}
+
+.table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ============================================================
+   Badge Entrée / Sortie
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .3rem .75rem;
+  border-radius: 20px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.badge.entrada {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.badge.saida {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* Colonnes spéciales */
+.table td:nth-child(3) {  /* Quantité */
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #0f172a;
+}
+
+.table td:nth-child(5) {  /* Date */
+  font-size: .82rem;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.table td:nth-child(4) {  /* Observation */
+  color: #64748b;
+  font-size: .85rem;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

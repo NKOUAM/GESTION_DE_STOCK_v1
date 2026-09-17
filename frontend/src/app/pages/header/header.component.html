@@ -1,0 +1,79 @@
+<header class="app-header">
+  <div class="header-top">
+
+    <!-- Logo + titre -->
+    <a routerLink="/dashboard" class="brand">
+      <svg class="brand-logo" viewBox="0 0 48 48" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#60a5fa"/>
+            <stop offset="100%" stop-color="#2563eb"/>
+          </linearGradient>
+        </defs>
+        <rect x="4" y="4" width="40" height="40" rx="10" fill="url(#logoGrad)"/>
+        <path d="M14 20 L24 15 L34 20 L34 30 L24 35 L14 30 Z"
+              fill="none" stroke="#fff" stroke-width="2.5"
+              stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M14 20 L24 25 L34 20" fill="none" stroke="#fff"
+              stroke-width="2.5" stroke-linejoin="round"/>
+        <line x1="24" y1="25" x2="24" y2="35" stroke="#fff" stroke-width="2.5"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">Gestion</span>
+        <span class="brand-sub">de Stock</span>
+      </div>
+    </a>
+
+    <!-- Menu utilisateur -->
+    <div class="user-menu" *ngIf="auth.currentUser() as u">
+
+      <!-- Chip utilisateur -->
+      <a routerLink="/profile" class="user-chip" [style.--role-color]="getRoleColor(u.role)">
+        <span class="user-avatar">
+          <app-icon name="user" [size]="18"></app-icon>
+        </span>
+        <span class="user-text">
+          <span class="name">{{ u.nome }}</span>
+          <span class="role">{{ u.role }}</span>
+        </span>
+      </a>
+
+      <!-- Toggle dark mode -->
+      <app-theme-toggle></app-theme-toggle>
+
+      <!-- Déconnexion -->
+      <button class="logout-btn" (click)="auth.logout()" title="Déconnexion">
+        <app-icon name="logout" [size]="18"></app-icon>
+        <span>Déconnexion</span>
+      </button>
+
+    </div>
+  </div>
+
+  <nav class="header-nav">
+    <a routerLink="/dashboard" routerLinkActive="active">
+      <app-icon name="dashboard" [size]="18"></app-icon>
+      <span>Tableau de bord</span>
+    </a>
+    <a routerLink="/categories" routerLinkActive="active">
+      <app-icon name="tag" [size]="18"></app-icon>
+      <span>Catégories</span>
+    </a>
+    <a routerLink="/fornecedores" routerLinkActive="active">
+      <app-icon name="truck" [size]="18"></app-icon>
+      <span>Fournisseurs</span>
+    </a>
+    <a routerLink="/produtos" routerLinkActive="active">
+      <app-icon name="box" [size]="18"></app-icon>
+      <span>Produits</span>
+    </a>
+    <a routerLink="/mouvements" routerLinkActive="active">
+      <app-icon name="swap" [size]="18"></app-icon>
+      <span>Mouvements</span>
+    </a>
+    <a routerLink="/usuarios" routerLinkActive="active" *ngIf="auth.isAdmin()">
+      <app-icon name="users" [size]="18"></app-icon>
+      <span>Utilisateurs</span>
+    </a>
+  </nav>
+</header>

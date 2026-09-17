@@ -1,0 +1,282 @@
+/* ============================================================
+   HEADER
+   ============================================================ */
+.app-header {
+  background: #0f172a;
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+  transition: background .3s ease;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+/* ============================================================
+   LOGO + MARQUE
+   ============================================================ */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+
+  text-decoration: none;
+  color: #fff;
+
+  transition: transform .2s;
+}
+
+.brand:hover {
+  transform: translateY(-1px);
+}
+
+.brand-logo {
+  display: block;
+
+  filter: drop-shadow(0 4px 8px rgba(59, 130, 246, .4));
+
+  transition: filter .3s;
+}
+
+.brand:hover .brand-logo {
+  filter: drop-shadow(0 6px 12px rgba(96, 165, 250, .6));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.02em;
+}
+
+.brand-sub {
+  font-size: .7rem;
+  font-weight: 600;
+  color: #60a5fa;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   MENU UTILISATEUR
+   ============================================================ */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+
+  padding: .4rem .8rem;
+
+  background: #1e293b;
+  color: #e2e8f0;
+
+  border-left: 3px solid var(--role-color, #3b82f6);
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  transition: all .2s;
+}
+
+.user-chip:hover {
+  background: #334155;
+  transform: translateY(-1px);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: var(--role-color, #3b82f6);
+  color: #fff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.user-text .name {
+  font-size: .85rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.user-text .role {
+  font-size: .7rem;
+  color: #94a3b8;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+
+  padding: .55rem 1rem;
+
+  background: #dc2626;
+  color: #fff;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: 600;
+  font-family: inherit;
+
+  transition: all .2s;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.header-nav {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+
+.header-nav a {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+
+  padding: .5rem .9rem;
+
+  color: #cbd5e1;
+  text-decoration: none;
+
+  border-radius: 6px;
+
+  font-size: .9rem;
+  font-weight: 500;
+
+  transition: all .2s;
+}
+
+.header-nav a:hover {
+  background: #1e293b;
+  color: #fff;
+}
+
+.header-nav a.active {
+  background: #3b82f6;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, .4);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 720px) {
+  .app-header {
+    padding: .75rem 1rem;
+  }
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .user-menu {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .header-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: .25rem;
+  }
+  .header-nav a {
+    white-space: nowrap;
+  }
+  .brand-text {
+    display: none;
+  }
+}
+
+
+/* ============================================================
+   MODE SOMBRE
+   ============================================================ */
+:host-context(html.dark) .app-header {
+  background: #020617;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .6);
+}
+
+:host-context(html.dark) .brand-title {
+  color: #f1f5f9;
+}
+
+:host-context(html.dark) .brand-sub {
+  color: #60a5fa;
+}
+
+:host-context(html.dark) .user-chip {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+:host-context(html.dark) .user-chip:hover {
+  background: #334155;
+}
+
+:host-context(html.dark) .user-text .name {
+  color: #f1f5f9;
+}
+
+:host-context(html.dark) .user-text .role {
+  color: #94a3b8;
+}
+
+:host-context(html.dark) .header-nav a {
+  color: #94a3b8;
+}
+
+:host-context(html.dark) .header-nav a:hover {
+  background: #1e293b;
+  color: #fff;
+}
+
+:host-context(html.dark) .header-nav a.active {
+  background: #3b82f6;
+  color: #fff;
+}

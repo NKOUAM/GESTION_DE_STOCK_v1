@@ -1,0 +1,183 @@
+/* ============================================================
+   CATÉGORIES
+   ============================================================ */
+:host {
+  display: block;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.5rem;
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+/* ============================================================
+   Formulaire
+   ============================================================ */
+.form {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  border-left: 4px solid #3b82f6;
+  margin-bottom: 1.5rem;
+}
+
+.form input {
+  flex: 1;
+  min-width: 200px;
+  padding: .7rem .9rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: .95rem;
+  color: #0f172a;
+  font-family: inherit;
+  transition: all .2s;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+
+.form button {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .9rem;
+  font-family: inherit;
+  transition: all .2s;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+}
+
+.form button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(59,130,246,.4);
+}
+
+.form button[type="button"] {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.form button[type="button"]:hover {
+  background: #e2e8f0;
+  box-shadow: none;
+}
+
+.form button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.hint {
+  color: #b91c1c;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.erro {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: .7rem 1rem;
+  border-radius: 8px;
+  font-size: .9rem;
+  margin: 0 0 1rem;
+}
+
+/* ============================================================
+   Tableau
+   ============================================================ */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.table thead {
+  background: #f8fafc;
+}
+
+.table th {
+  padding: .85rem 1rem;
+  text-align: left;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table td {
+  padding: .85rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  font-size: .9rem;
+}
+
+.table tbody tr {
+  transition: background .15s;
+}
+
+.table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table td button {
+  padding: .4rem .8rem;
+  margin-right: .35rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .8rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all .2s;
+}
+
+.table td button:first-child {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.table td button:first-child:hover {
+  background: #fde68a;
+}
+
+.table td button:last-child {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.table td button:last-child:hover {
+  background: #fecaca;
+}
