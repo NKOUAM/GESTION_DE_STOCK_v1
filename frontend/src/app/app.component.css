@@ -1,11 +1,25 @@
+/* ============================================================
+   APP — CHARTE DEEPSEEK
+   Bleu DeepSeek : #4D6BFE
+   Fond          : #1E1E1E
+   Carte         : #262626
+   Bordure       : #2E2E2E
+   Texte         : #ECECEC
+   Secondaire    : #8E8E93
+   ============================================================ */
 .app-main {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  min-height: calc(100vh - 120px);
+  background: #1E1E1E;
+  color: #ECECEC;
 }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 720px) {
   .app-main {
     padding: 1rem;
+    min-height: calc(100vh - 100px);
   }
 }

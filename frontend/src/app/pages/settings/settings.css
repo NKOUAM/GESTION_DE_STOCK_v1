@@ -1,13 +1,117 @@
-.settings-page { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; }
-.page-title { display: flex; align-items: center; gap: .75rem; color: #1e40af; }
-.page-title h2 { margin: 0; color: #0f172a; font-size: 1.5rem; font-weight: 700; }
-.page-title p { margin: .15rem 0 0; color: #64748b; font-size: .9rem; }
-.card { background: #fff; padding: 1.5rem; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
-.card-header { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; padding-bottom: .75rem; color: #1e40af; border-bottom: 1px solid #f1f5f9; }
-.card-header h3 { margin: 0; font-size: 1rem; color: #0f172a; font-weight: 700; }
-.row { display: flex; justify-content: space-between; align-items: center; padding: .85rem 0; border-bottom: 1px solid #f1f5f9; gap: 1rem; }
-.row:last-child { border-bottom: none; }
-.row strong { display: block; color: #0f172a; font-size: .95rem; }
-.row p { margin: 0; color: #64748b; font-size: .85rem; }
-.btn { padding: .5rem 1rem; background: #3b82f6; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: .85rem; text-decoration: none; font-family: inherit; }
-.btn:hover { background: #2563eb; }
+/* ============================================================
+   SETTINGS — CHARTE DEEPSEEK
+   Bleu DeepSeek : #4D6BFE
+   Fond          : #1E1E1E
+   Carte         : #262626
+   Bordure       : #2E2E2E
+   Texte         : #ECECEC
+   Secondaire    : #8E8E93
+   ============================================================ */
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+/* ---------- En-tête ---------- */
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  color: #4D6BFE;
+}
+
+.page-title h2 {
+  margin: 0;
+  color: #ECECEC;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.page-title p {
+  margin: .15rem 0 0;
+  color: #8E8E93;
+  font-size: .9rem;
+}
+
+/* ---------- Cartes ---------- */
+.card {
+  background: #262626;
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid #2E2E2E;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1rem;
+  padding-bottom: .75rem;
+  color: #4D6BFE;
+  border-bottom: 1px solid #2E2E2E;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #ECECEC;
+  font-weight: 600;
+}
+
+/* ---------- Lignes ---------- */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .85rem 0;
+  border-bottom: 1px solid #2E2E2E;
+  gap: 1rem;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row strong {
+  display: block;
+  color: #ECECEC;
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+.row p {
+  margin: 0;
+  color: #8E8E93;
+  font-size: .85rem;
+}
+
+/* ---------- Bouton : bleu DeepSeek ---------- */
+.btn {
+  padding: .55rem 1.1rem;
+  background: #4D6BFE;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .85rem;
+  text-decoration: none;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .15s, box-shadow .2s;
+}
+
+.btn:hover {
+  background: #3D5BEE;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(77, 107, 254, .35);
+}
+
+.btn:active {
+  transform: translateY(0);
+}

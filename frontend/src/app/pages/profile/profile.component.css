@@ -1,6 +1,11 @@
 /* ============================================================
-   PROFILE — SANS ROUGE
-   Blanc #FFFFFF  |  Bleu #1E3A8A  |  Noir #111827  |  Orange #F97316
+   PROFILE — CHARTE DEEPSEEK
+   Bleu DeepSeek : #4D6BFE
+   Fond          : #1E1E1E
+   Carte         : #262626
+   Bordure       : #2E2E2E
+   Texte         : #ECECEC
+   Secondaire    : #8E8E93
    ============================================================ */
 
 .profile-page {
@@ -18,11 +23,11 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: #FFFFFF;
+  background: #262626;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(17, 24, 39, .08);
-  border-left: 4px solid #1E3A8A;
+  border: 1px solid #2E2E2E;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
   position: relative;
   overflow: hidden;
 }
@@ -35,7 +40,7 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(30, 58, 138, .10) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(77, 107, 254, .12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -43,12 +48,12 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #1E3A8A;
+  background: #4D6BFE;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(17, 24, 39, .15);
+  box-shadow: 0 8px 24px rgba(77, 107, 254, .35);
   flex-shrink: 0;
   position: relative;
   z-index: 1;
@@ -71,9 +76,9 @@
   position: relative;
   margin: 0;
   padding-bottom: .5rem;
-  color: #111827;
+  color: #ECECEC;
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -.02em;
 }
 
@@ -85,12 +90,11 @@
   width: 48px;
   height: 3px;
   border-radius: 2px;
-  background: #F97316;
+  background: #4D6BFE;
 }
 
 .username {
-  color: #111827;
-  opacity: .6;
+  color: #8E8E93;
   margin: 0;
   font-family: 'Courier New', monospace;
   font-size: .95rem;
@@ -101,13 +105,13 @@
   padding: .35rem .85rem;
   border-radius: 20px;
   color: #FFFFFF;
-  background: #1E3A8A;
+  background: #4D6BFE;
   font-size: .75rem;
   font-weight: 700;
   letter-spacing: .8px;
   margin-top: .5rem;
   width: fit-content;
-  box-shadow: 0 2px 8px rgba(17, 24, 39, .15);
+  box-shadow: 0 2px 8px rgba(77, 107, 254, .35);
   text-transform: uppercase;
 }
 
@@ -145,16 +149,17 @@
    CARTES
    ============================================================ */
 .card {
-  background: #FFFFFF;
-  border-radius: 12px;
+  background: #262626;
+  border-radius: 14px;
   padding: 1.5rem;
-  box-shadow: 0 2px 12px rgba(17, 24, 39, .08);
-  border-left: 4px solid #1E3A8A;
-  transition: box-shadow .2s, transform .2s;
+  border: 1px solid #2E2E2E;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
+  transition: box-shadow .2s, transform .2s, border-color .2s;
 }
 
 .card:hover {
-  box-shadow: 0 8px 24px rgba(17, 24, 39, .12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
+  border-color: #3E3E3E;
   transform: translateY(-2px);
 }
 
@@ -163,16 +168,16 @@
   align-items: center;
   gap: .5rem;
   margin-bottom: 1rem;
-  color: #1E3A8A;
+  color: #4D6BFE;
   padding-bottom: .75rem;
-  border-bottom: 1px solid rgba(17, 24, 39, .08);
+  border-bottom: 1px solid #2E2E2E;
 }
 
 .card-header h3 {
   margin: 0;
   font-size: 1rem;
-  color: #111827;
-  font-weight: 700;
+  color: #ECECEC;
+  font-weight: 600;
 }
 
 /* ============================================================
@@ -183,8 +188,8 @@
   align-items: center;
   gap: .75rem;
   padding: .75rem 0;
-  border-bottom: 1px solid rgba(17, 24, 39, .08);
-  color: #111827;
+  border-bottom: 1px solid #2E2E2E;
+  color: #8E8E93;
 }
 
 .info-row:last-child {
@@ -199,8 +204,7 @@
 
 .info-row .label {
   font-size: .7rem;
-  color: #111827;
-  opacity: .5;
+  color: #6E6E73;
   text-transform: uppercase;
   letter-spacing: .8px;
   font-weight: 600;
@@ -208,7 +212,7 @@
 }
 
 .info-row .value {
-  color: #111827;
+  color: #ECECEC;
   font-weight: 600;
   font-size: .95rem;
 }
@@ -217,12 +221,12 @@
    CARTE RÔLE / PERMISSIONS
    ============================================================ */
 .role-card {
-  border-left: 4px solid #1E3A8A;
+  border-left: 3px solid #4D6BFE;
 }
 
 .role-description {
-  color: #111827;
-  opacity: .8;
+  color: #ECECEC;
+  opacity: .85;
   line-height: 1.7;
   margin: 0;
   font-size: .95rem;
@@ -244,9 +248,9 @@
 .pwd-form label {
   display: block;
   font-size: .85rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: .4rem;
+  font-weight: 500;
+  color: #ECECEC;
+  margin-bottom: .5rem;
 }
 
 .pwd-form .input-wrapper {
@@ -257,50 +261,48 @@
 
 .pwd-form .input-icon {
   position: absolute;
-  left: 12px;
-  color: #111827;
-  opacity: .4;
+  left: 14px;
+  color: #8E8E93;
   pointer-events: none;
-  transition: color .2s, opacity .2s;
+  transition: color .2s;
 }
 
 .pwd-form input {
   width: 100%;
-  padding: .75rem .75rem .75rem 2.6rem;
-  border: 1.5px solid rgba(17, 24, 39, .25);
-  border-radius: 8px;
+  padding: .75rem .75rem .75rem 2.7rem;
+  border: 1px solid #2E2E2E;
+  border-radius: 10px;
   font-size: .95rem;
-  color: #111827;
-  background: #FFFFFF;
-  transition: border-color .2s, box-shadow .2s;
+  color: #ECECEC;
+  background: #1E1E1E;
+  transition: border-color .2s, box-shadow .2s, background .2s;
   font-family: inherit;
 }
 
 .pwd-form input::placeholder {
-  color: #111827;
-  opacity: .35;
+  color: #6E6E73;
 }
 
 .pwd-form input:hover {
-  border-color: rgba(17, 24, 39, .45);
+  border-color: #3E3E3E;
 }
 
 .pwd-form input:focus {
   outline: none;
-  border-color: #1E3A8A;
-  box-shadow: 0 0 0 3px rgba(30, 58, 138, .15);
+  background: #1A1A1A;
+  border-color: #4D6BFE;
+  box-shadow: 0 0 0 3px rgba(77, 107, 254, .15);
 }
 
 .pwd-form .toggle-pwd {
   position: absolute;
-  right: 8px;
+  right: 10px;
   background: none;
   border: none;
-  color: #111827;
-  opacity: .5;
+  color: #8E8E93;
   cursor: pointer;
   padding: 6px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -308,46 +310,47 @@
 }
 
 .pwd-form .toggle-pwd:hover {
-  background: rgba(17, 24, 39, .06);
-  opacity: 1;
+  background: #2E2E2E;
+  color: #ECECEC;
 }
 
-/* ---------- Bouton principal : bleu ciel + blanc → orange au survol ---------- */
+/* ---------- Bouton principal : bleu DeepSeek ---------- */
 .pwd-form button[type="submit"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: .5rem;
   padding: .75rem 1.5rem;
-  background: #1E3A8A;
+  background: #4D6BFE;
   color: #FFFFFF;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   font-size: .95rem;
   margin-top: .5rem;
-  transition: background .2s, transform .15s;
+  transition: background .2s, transform .15s, box-shadow .2s;
   font-family: inherit;
   width: fit-content;
 }
 
 .pwd-form button[type="submit"]:hover:not(:disabled) {
-  background: #F97316;
+  background: #3D5BEE;
   transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(77, 107, 254, .35);
 }
 
 .pwd-form button[type="submit"]:active:not(:disabled) {
-  transform: scale(.98);
+  transform: translateY(0);
 }
 
 .pwd-form button[type="submit"]:disabled {
-  opacity: .6;
+  opacity: .5;
   cursor: not-allowed;
 }
 
 /* ============================================================
-   MESSAGES — sans rouge
+   MESSAGES
    ============================================================ */
 .msg-success,
 .msg-error {
@@ -355,10 +358,9 @@
   align-items: center;
   gap: .5rem;
   padding: .7rem 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: .9rem;
   margin: .5rem 0;
-  color: #FFFFFF;
   animation: slideIn .3s ease-out;
 }
 
@@ -368,9 +370,13 @@
 }
 
 .msg-success {
-  background: #1E3A8A;
+  background: rgba(48, 209, 88, .10);
+  color: #30D158;
+  border: 1px solid rgba(48, 209, 88, .25);
 }
 
 .msg-error {
-  background: #F97316;
+  background: rgba(255, 69, 58, .10);
+  color: #FF453A;
+  border: 1px solid rgba(255, 69, 58, .25);
 }
