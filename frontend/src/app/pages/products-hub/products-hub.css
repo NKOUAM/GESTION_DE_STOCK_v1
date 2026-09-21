@@ -1,37 +1,61 @@
-.hub { display: flex; flex-direction: column; gap: 1.5rem; }
+/* ============================================================
+   PRODUCTS-HUB — CHARTE DEEPSEEK
+   Bleu DeepSeek : #4D6BFE
+   Fond          : #1E1E1E
+   Carte         : #262626
+   Bordure       : #2E2E2E
+   Texte         : #ECECEC
+   Secondaire    : #8E8E93
+   ============================================================ */
+.hub {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
+/* ---------- Onglets ---------- */
 .tabs {
-  display: flex; gap: .5rem;
+  display: flex;
+  gap: .35rem;
   padding: .35rem;
-  background: #f1f5f9;
+  background: #262626;
+  border: 1px solid #2E2E2E;
   border-radius: 12px;
   width: fit-content;
 }
 
 .tab {
-  display: inline-flex; align-items: center; gap: .5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
   padding: .65rem 1.3rem;
   background: transparent;
-  color: #475569;
-  border: none; border-radius: 8px;
+  color: #8E8E93;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 600; font-size: .9rem;
+  font-weight: 600;
+  font-size: .9rem;
   font-family: inherit;
-  transition: all .2s;
+  transition: background .2s, color .2s, box-shadow .2s;
 }
-.tab:hover { background: rgba(255,255,255,.6); }
+
+.tab:hover {
+  background: #2E2E2E;
+  color: #ECECEC;
+}
+
 .tab.active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(59,130,246,.35);
+  background: #4D6BFE;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(77, 107, 254, .35);
 }
 
-.content { width: 100%; }
+.tab.active:hover {
+  background: #3D5BEE;
+  color: #FFFFFF;
+}
 
-:host-context(html.dark) .tabs { background: #0f172a; }
-:host-context(html.dark) .tab { color: #cbd5e1; }
-:host-context(html.dark) .tab:hover { background: rgba(255,255,255,.05); }
-:host-context(html.dark) .tab.active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: #fff;
+.content {
+  width: 100%;
 }

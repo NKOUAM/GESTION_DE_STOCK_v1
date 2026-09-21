@@ -1,10 +1,17 @@
 /* ============================================================
-   MOUVEMENTS — CHARTE GRAPHIQUE
+   MOUVEMENTS — CHARTE DEEPSEEK
+   Bleu DeepSeek : #4D6BFE
+   Fond          : #1E1E1E
+   Carte         : #262626
+   Bordure       : #2E2E2E
+   Texte         : #ECECEC
+   Secondaire    : #8E8E93
    ============================================================ */
 :host {
   display: block;
 }
 
+/* ---------- Titre ---------- */
 h2 {
   position: relative;
   display: flex;
@@ -12,9 +19,9 @@ h2 {
   gap: .6rem;
   margin: 0 0 1.75rem;
   padding-bottom: .75rem;
-  color: #111827;
+  color: #ECECEC;
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -.02em;
 }
 
@@ -26,20 +33,20 @@ h2::after {
   width: 48px;
   height: 3px;
   border-radius: 2px;
-  background: #F97316;
+  background: #4D6BFE;
 }
 
-/* Formulaire */
+/* ---------- Formulaire ---------- */
 .form {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   align-items: flex-end;
-  background: #FFFFFF;
+  background: #262626;
   padding: 1.25rem;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(17, 24, 39, .06);
-  border-left: 4px solid #1E3A8A;
+  border: 1px solid #2E2E2E;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
   margin-bottom: 1rem;
 }
 
@@ -48,8 +55,8 @@ h2::after {
   flex-direction: column;
   gap: .35rem;
   font-size: .8rem;
-  font-weight: 700;
-  color: #6B7280;
+  font-weight: 600;
+  color: #8E8E93;
   text-transform: uppercase;
   letter-spacing: .5px;
   flex: 1;
@@ -58,91 +65,109 @@ h2::after {
 
 .form select,
 .form input {
-  padding: .7rem .9rem;
-  border: 1.5px solid #D1D5DB;
-  border-radius: 8px;
+  padding: .75rem .9rem;
+  border: 1px solid #2E2E2E;
+  border-radius: 10px;
   font-size: .95rem;
-  color: #111827;
+  color: #ECECEC;
   font-family: inherit;
-  background: #FFFFFF;
+  background: #1E1E1E;
   font-weight: 500;
   text-transform: none;
   letter-spacing: normal;
-  transition: border-color .2s, box-shadow .2s;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.form select::placeholder,
+.form input::placeholder {
+  color: #6E6E73;
+}
+
+.form select:hover,
+.form input:hover {
+  border-color: #3E3E3E;
 }
 
 .form select:focus,
 .form input:focus {
   outline: none;
-  border-color: #1E3A8A;
-  box-shadow: 0 0 0 3px rgba(30, 58, 138, .15);
+  background: #1A1A1A;
+  border-color: #4D6BFE;
+  box-shadow: 0 0 0 3px rgba(77, 107, 254, .15);
 }
 
+/* ---------- Bouton principal : bleu DeepSeek ---------- */
 .form button {
   display: inline-flex;
   align-items: center;
   gap: .4rem;
-  padding: .7rem 1.5rem;
+  padding: .75rem 1.5rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   font-size: .9rem;
   font-family: inherit;
   transition: background .2s, transform .15s, box-shadow .2s;
-  background: #F97316;
+  background: #4D6BFE;
   color: #FFFFFF;
   align-self: flex-end;
 }
 
 .form button:hover:not(:disabled) {
-  background: #EA580C;
+  background: #3D5BEE;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(249, 115, 22, .40);
+  box-shadow: 0 6px 18px rgba(77, 107, 254, .35);
+}
+
+.form button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .erro {
   display: flex;
   align-items: center;
   gap: .5rem;
-  background: #FEF2F2;
-  color: #DC2626;
-  border: 1px solid #FECACA;
+  background: rgba(255, 69, 58, .10);
+  color: #FF453A;
+  border: 1px solid rgba(255, 69, 58, .25);
   padding: .7rem 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: .9rem;
   margin: 0 0 1rem;
 }
 
-/* Tableau */
+/* ---------- Tableau ---------- */
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: #FFFFFF;
+  background: #262626;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(17, 24, 39, .06);
+  border: 1px solid #2E2E2E;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
 }
 
 .table thead {
-  background: #F3F4F6;
+  background: #1E1E1E;
 }
 
 .table th {
   padding: .85rem 1rem;
   text-align: left;
   font-size: .78rem;
-  font-weight: 700;
-  color: #6B7280;
+  font-weight: 600;
+  color: #8E8E93;
   text-transform: uppercase;
   letter-spacing: .5px;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid #2E2E2E;
 }
 
 .table td {
   padding: .85rem 1rem;
-  border-bottom: 1px solid #F3F4F6;
-  color: #111827;
+  border-bottom: 1px solid #2E2E2E;
+  color: #ECECEC;
   font-size: .9rem;
 }
 
@@ -151,14 +176,14 @@ h2::after {
 }
 
 .table tbody tr:hover {
-  background: #F9FAFB;
+  background: rgba(77, 107, 254, .06);
 }
 
 .table tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* Badge Entrée / Sortie */
+/* ---------- Badge Entrée / Sortie ---------- */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -172,32 +197,32 @@ h2::after {
 }
 
 .badge.entrada {
-  background: #ECFDF5;
-  color: #16A34A;
-  border: 1px solid #A7F3D0;
+  background: rgba(48, 209, 88, .15);
+  color: #30D158;
+  border: 1px solid rgba(48, 209, 88, .30);
 }
 
 .badge.saida {
-  background: #FEF2F2;
-  color: #DC2626;
-  border: 1px solid #FECACA;
+  background: rgba(255, 69, 58, .15);
+  color: #FF453A;
+  border: 1px solid rgba(255, 69, 58, .30);
 }
 
-/* Colonnes spéciales */
+/* ---------- Colonnes spéciales ---------- */
 .table td:nth-child(3) {
   font-weight: 700;
   font-family: 'Courier New', monospace;
-  color: #111827;
+  color: #ECECEC;
 }
 
 .table td:nth-child(5) {
   font-size: .82rem;
-  color: #6B7280;
+  color: #8E8E93;
   font-family: 'Courier New', monospace;
 }
 
 .table td:nth-child(4) {
-  color: #6B7280;
+  color: #8E8E93;
   font-size: .85rem;
   max-width: 300px;
   overflow: hidden;

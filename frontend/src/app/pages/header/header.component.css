@@ -1,13 +1,19 @@
 /* ============================================================
-   HEADER — CHARTE GRAPHIQUE
-   Blanc #FFFFFF  |  Bleu #1E3A8A  |  Noir #111827  |  Orange #F97316
+   HEADER — CHARTE DEEPSEEK
+   Bleu DeepSeek : #4D6BFE
+   Fond          : #1E1E1E
+   Carte         : #262626
+   Bordure       : #2E2E2E
+   Texte         : #ECECEC
+   Secondaire    : #8E8E93
    ============================================================ */
 
 .app-header {
-  background: #1E3A8A;
-  color: #FFFFFF;
+  background: #1E1E1E;
+  color: #ECECEC;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 12px rgba(17, 24, 39, .15);
+  border-bottom: 1px solid #2E2E2E;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .03);
   transition: background .3s ease;
 }
 
@@ -28,7 +34,7 @@
   align-items: center;
   gap: .75rem;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ECECEC;
   transition: transform .2s;
 }
 
@@ -38,12 +44,12 @@
 
 .brand-logo {
   display: block;
-  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, .25));
+  filter: drop-shadow(0 4px 8px rgba(77, 107, 254, .35));
   transition: filter .3s;
 }
 
 .brand:hover .brand-logo {
-  filter: drop-shadow(0 6px 12px rgba(249, 115, 22, .55));
+  filter: drop-shadow(0 6px 14px rgba(77, 107, 254, .55));
 }
 
 .brand-text {
@@ -54,16 +60,15 @@
 
 .brand-title {
   font-size: 1.15rem;
-  font-weight: 800;
-  color: #FFFFFF;
+  font-weight: 700;
+  color: #ECECEC;
   letter-spacing: -.02em;
 }
 
 .brand-sub {
   font-size: .7rem;
   font-weight: 600;
-  color: #FFFFFF;
-  opacity: .75;
+  color: #8E8E93;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
@@ -82,16 +87,17 @@
   align-items: center;
   gap: .6rem;
   padding: .4rem .8rem;
-  background: rgba(255, 255, 255, .12);
-  color: #FFFFFF;
-  border-left: 3px solid #F97316;
-  border-radius: 8px;
+  background: #262626;
+  color: #ECECEC;
+  border: 1px solid #2E2E2E;
+  border-left: 3px solid #4D6BFE;
+  border-radius: 10px;
   text-decoration: none;
-  transition: background .2s, transform .2s;
+  transition: background .2s, transform .2s, border-color .2s;
 }
 
 .user-chip:hover {
-  background: rgba(255, 255, 255, .22);
+  background: #2E2E2E;
   transform: translateY(-1px);
 }
 
@@ -99,7 +105,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #F97316;
+  background: #4D6BFE;
   color: #FFFFFF;
   display: inline-flex;
   align-items: center;
@@ -116,37 +122,37 @@
 .user-text .name {
   font-size: .85rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #ECECEC;
 }
 
 .user-text .role {
   font-size: .7rem;
-  color: #FFFFFF;
-  opacity: .75;
+  color: #8E8E93;
   letter-spacing: .5px;
   text-transform: uppercase;
 }
 
-/* ---------- Déconnexion : ghost blanc → orange au survol ---------- */
+/* ---------- Déconnexion ---------- */
 .logout-btn {
   display: flex;
   align-items: center;
   gap: .4rem;
   padding: .55rem 1rem;
   background: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, .35);
-  border-radius: 8px;
+  color: #ECECEC;
+  border: 1px solid #2E2E2E;
+  border-radius: 10px;
   cursor: pointer;
   font-size: .85rem;
   font-weight: 600;
   font-family: inherit;
-  transition: background .2s, border-color .2s, transform .15s;
+  transition: background .2s, border-color .2s, transform .15s, color .2s;
 }
 
 .logout-btn:hover {
-  background: #F97316;
-  border-color: #F97316;
+  background: rgba(255, 69, 58, .10);
+  border-color: rgba(255, 69, 58, .35);
+  color: #FF453A;
   transform: translateY(-1px);
 }
 
@@ -155,36 +161,38 @@
    ============================================================ */
 .header-nav {
   display: flex;
-  gap: .4rem;
+  gap: .35rem;
   flex-wrap: wrap;
 }
 
 .header-nav a {
   display: flex;
   align-items: center;
-  gap: .4rem;
+  gap: .45rem;
   padding: .5rem .9rem;
-  color: #FFFFFF;
-  opacity: .85;
+  color: #8E8E93;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: .9rem;
   font-weight: 500;
-  transition: background .2s, color .2s, opacity .2s;
+  transition: background .2s, color .2s;
 }
 
 .header-nav a:hover {
-  background: rgba(255, 255, 255, .10);
-  color: #FFFFFF;
-  opacity: 1;
+  background: #262626;
+  color: #ECECEC;
 }
 
-/* Lien actif : seul élément accent de la barre */
+/* Lien actif : bleu DeepSeek */
 .header-nav a.active {
-  background: #F97316;
+  background: #4D6BFE;
   color: #FFFFFF;
-  opacity: 1;
-  box-shadow: 0 2px 8px rgba(249, 115, 22, .40);
+  box-shadow: 0 2px 8px rgba(77, 107, 254, .40);
+}
+
+.header-nav a.active:hover {
+  background: #3D5BEE;
+  color: #FFFFFF;
 }
 
 /* ============================================================
@@ -207,6 +215,10 @@
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: .25rem;
+    scrollbar-width: none;
+  }
+  .header-nav::-webkit-scrollbar {
+    display: none;
   }
   .header-nav a {
     white-space: nowrap;
@@ -214,55 +226,4 @@
   .brand-text {
     display: none;
   }
-}
-
-/* ============================================================
-   MODE SOMBRE — header noir
-   ============================================================ */
-:host-context(html.dark) .app-header {
-  background: #111827;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, .6);
-}
-
-:host-context(html.dark) .brand-title {
-  color: #FFFFFF;
-}
-
-:host-context(html.dark) .brand-sub {
-  color: #FFFFFF;
-  opacity: .75;
-}
-
-:host-context(html.dark) .user-chip {
-  background: rgba(255, 255, 255, .06);
-}
-
-:host-context(html.dark) .user-chip:hover {
-  background: rgba(255, 255, 255, .12);
-}
-
-:host-context(html.dark) .user-text .name {
-  color: #FFFFFF;
-}
-
-:host-context(html.dark) .user-text .role {
-  color: #FFFFFF;
-  opacity: .75;
-}
-
-:host-context(html.dark) .header-nav a {
-  color: #FFFFFF;
-  opacity: .75;
-}
-
-:host-context(html.dark) .header-nav a:hover {
-  background: rgba(255, 255, 255, .08);
-  color: #FFFFFF;
-  opacity: 1;
-}
-
-:host-context(html.dark) .header-nav a.active {
-  background: #F97316;
-  color: #FFFFFF;
-  opacity: 1;
 }

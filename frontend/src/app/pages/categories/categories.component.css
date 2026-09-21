@@ -1,94 +1,91 @@
-/* ============================================================
-   CATÉGORIES — BLEU CIEL + BLANC
-   Normal : bleu ciel #1E3A8A + blanc
-   Hover  : orange #F97316
-   ============================================================ */
+
 :host {
   display: block;
 }
 
-/* ---------- Titre ---------- */
 h2 {
   display: flex;
   align-items: center;
   gap: .6rem;
   margin: 0 0 1.75rem;
-  color: #111827;
+  color: #ECECEC;
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -.02em;
 }
 
-/* ---------- Formulaire ---------- */
 .form {
   display: flex;
   gap: .75rem;
   flex-wrap: wrap;
   align-items: center;
-  background: #FFFFFF;
+  background: #262626;
   padding: 1.25rem;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(17, 24, 39, .08);
-  border-left: 4px solid #1E3A8A;
+  border: 1px solid #2E2E2E;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
   margin-bottom: 1.5rem;
 }
 
 .form input {
   flex: 1;
   min-width: 200px;
-  padding: .7rem .9rem;
-  border: 1.5px solid rgba(17, 24, 39, .25);
-  border-radius: 8px;
+  padding: .75rem .9rem;
+  border: 1px solid #2E2E2E;
+  border-radius: 10px;
   font-size: .95rem;
-  color: #111827;
-  background: #FFFFFF;
+  color: #ECECEC;
+  background: #1E1E1E;
   font-family: inherit;
-  transition: border-color .2s, box-shadow .2s;
+  transition: border-color .2s, box-shadow .2s, background .2s;
 }
 
 .form input::placeholder {
-  color: #111827;
-  opacity: .35;
+  color: #6E6E73;
+}
+
+.form input:hover {
+  border-color: #3E3E3E;
 }
 
 .form input:focus {
   outline: none;
-  border-color: #1E3A8A;
-  box-shadow: 0 0 0 3px rgba(30, 58, 138, .15);
+  background: #1A1A1A;
+  border-color: #4D6BFE;
+  box-shadow: 0 0 0 3px rgba(77, 107, 254, .15);
 }
 
-/* ---------- Bouton Ajouter : bleu ciel + blanc → orange au survol ---------- */
 .form button {
   display: inline-flex;
   align-items: center;
   gap: .4rem;
-  padding: .7rem 1.2rem;
+  padding: .75rem 1.3rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   font-size: .9rem;
   font-family: inherit;
-  background: #1E3A8A;
+  background: #4D6BFE;
   color: #FFFFFF;
-  transition: background .2s, transform .15s;
+  transition: background .2s, transform .15s, box-shadow .2s;
 }
 
 .form button:hover:not(:disabled) {
-  background: #F97316;
+  background: #3D5BEE;
   transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(77, 107, 254, .35);
 }
 
-/* ---------- Bouton Annuler : identique mais plus discret ---------- */
 .form button[type="button"] {
-  background: #FFFFFF;
-  color: #1E3A8A;
-  border: 1.5px solid #1E3A8A;
+  background: transparent;
+  color: #ECECEC;
+  border: 1px solid #2E2E2E;
 }
 
 .form button[type="button"]:hover {
-  background: #1E3A8A;
-  color: #FFFFFF;
+  background: #2E2E2E;
+  border-color: #3E3E3E;
 }
 
 .form button:disabled {
@@ -97,7 +94,7 @@ h2 {
 }
 
 .hint {
-  color: #F97316;
+  color: #FF453A;
   font-size: .8rem;
   font-weight: 500;
 }
@@ -106,39 +103,40 @@ h2 {
   display: flex;
   align-items: center;
   gap: .5rem;
-  background: #1E3A8A;
-  color: #FFFFFF;
+  background: rgba(255, 59, 48, .10);
+  color: #FF453A;
+  border: 1px solid rgba(255, 59, 48, .25);
   padding: .7rem 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: .9rem;
   margin: 0 0 1rem;
 }
 
-/* ---------- Tableau ---------- */
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: #FFFFFF;
+  background: #262626;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(17, 24, 39, .08);
+  border: 1px solid #2E2E2E;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
 }
 
 .table th {
   padding: .85rem 1rem;
   text-align: left;
   font-size: .78rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  background: #1E3A8A;
+  font-weight: 600;
+  color: #8E8E93;
+  background: #1E1E1E;
   text-transform: uppercase;
   letter-spacing: .5px;
 }
 
 .table td {
   padding: .85rem 1rem;
-  border-bottom: 1px solid rgba(17, 24, 39, .08);
-  color: #111827;
+  border-bottom: 1px solid #2E2E2E;
+  color: #ECECEC;
   font-size: .9rem;
 }
 
@@ -147,29 +145,30 @@ h2 {
 }
 
 .table tbody tr:hover {
-  background: rgba(17, 24, 39, .04);
+  background: rgba(77, 107, 254, .06);
 }
 
 .table tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* ---------- Boutons d'action : bleu ciel + blanc → orange au survol ---------- */
 .table td button {
   padding: .45rem .9rem;
   margin-right: .35rem;
-  border: none;
-  border-radius: 6px;
+  border: 1px solid #2E2E2E;
+  border-radius: 8px;
   cursor: pointer;
   font-size: .8rem;
-  font-weight: 600;
+  font-weight: 500;
   font-family: inherit;
-  background: #1E3A8A;
-  color: #FFFFFF;
-  transition: background .2s, transform .15s;
+  background: #1E1E1E;
+  color: #ECECEC;
+  transition: background .2s, transform .15s, border-color .2s;
 }
 
 .table td button:hover {
-  background: #F97316;
+  background: #4D6BFE;
+  border-color: #4D6BFE;
+  color: #FFFFFF;
   transform: translateY(-1px);
 }
